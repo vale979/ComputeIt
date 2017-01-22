@@ -8,11 +8,13 @@ mutlak :: Integer -> IO()
 mutlak x =	if x < 0
 			then print(x * (-1))
 			else print (x)
+acce x y = x / y
 main :: IO()
 main = do
 	putStrLn "Silahkan ketik angka sesuai yang anda inginkan :"
 	putStrLn "1 untuk tes ganjil/genap"
 	putStrLn "2 untuk nilai mutlak"
+	putStrLn "3 untuk menghitung akselerasi apabila diketahui gaya total dan massa total"
 	a <- getLine
 	if (a == "1")
 		then do 
@@ -29,4 +31,11 @@ main = do
 			hFlush stdout
 			x <- readLn
 			mutlak x
+			else if(a == "3")
+			then do
+			putStr "Tuliskan gaya total dan massa total, dipisah oleh enter : "
+			hFlush stdout
+			x <- readLn
+			y <- readLn
+			print (acce x y)
 			else putStrLn "Apasih"
